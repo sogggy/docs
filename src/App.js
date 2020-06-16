@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 // import SideBar from './components/SideBar'
-import options from './data/sidebar.json'
-import { Jumbotron, Container, Row, Col } from 'react-bootstrap'
+//import options from './data/sidebar.json'
+import { Container, Row, Col } from 'react-bootstrap'
 import TopBar from './components/TopBar'
 import SideBar from './components/SideBar';
 import RenderMarkdown from './components/RenderMarkdown'
@@ -135,27 +135,83 @@ const topbarHeaders = [
   }
 ]
 
+const sideBarItems = [
+  {
+    url: '/',
+    sideLinks: [
+      {
+        name:'Home',
+        link:'/'
+      },
+      {
+        name:'Botbuilder',
+        link:'/services/botbuilder'
+      }
+    ]
+  },
+  {
+    url: '/services/botbuilder',
+    sideLinks: [
+      {
+        name:'test1',
+        link:'/'
+      },
+      {
+        name:'test2',
+        link:'/services/botbuilder'
+      }
+    ]
+  },
+  {
+    url: '/admin/features/localisation.html',
+    sideLinks: [
+      {
+        name:'test3',
+        link:'/'
+      },
+      {
+        name:'test4',
+        link:'/services/botbuilder'
+      }
+    ]
+  }
+]
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      sideBarItems: [
-        {
-          name:'Home',
-          link:'/'
-        },
-        {
-          name:'Botbuilder',
-          link:'/services/botbuilder'
-        }
-      ],
-      currentRoute: '/'
+      sideBarItems: 
+      {
+        url: '/',
+        sideLinks: [
+          {
+            name:'Home',
+            link:'/'
+          },
+          {
+            name:'Botbuilder',
+            link:'/services/botbuilder'
+          }
+        ]
+      }, 
+      currentLocation: '/'
     }
     this.handleClickLink = this.handleClickLink.bind(this)
   }
 
-  handleClickLink() {
-    
+  handleClickLink(location, file) {
+    const targetSideBar = sideBarItems.filter((sidebar, index) => (
+      sidebar.url === location
+    ))
+    if (targetSideBar.length === 0 || location === this.state.currentLocation) {
+
+    } else {
+      this.setState({
+        sideBarItems: targetSideBar[0],
+        currentLocation: targetSideBar[0].url
+      })
+    }
   }
 
   render() {
@@ -165,18 +221,16 @@ class App extends Component {
         <Container fluid>
           <Row>
             <Col xs={9}>
-              <Jumbotron>
-                <Switch>
-                  {routes.map((route, index) => (
-                    <Route 
-                      key={index}
-                      path={route.path}
-                      exact
-                      component={() => (<RenderMarkdown file={route.path}/>)}
-                    />
-                  ))}
-                </Switch>
-              </Jumbotron>
+              <Switch>
+                {routes.map((route, index) => (
+                  <Route 
+                    key={index}
+                    path={route.path}
+                    exact
+                    component={() => (<RenderMarkdown file={route.path} onRender={this.handleClickLink}/>)}
+                  />
+                ))}
+              </Switch>
             </Col>
             <Col xs={3}>
               <SideBar items={this.state.sideBarItems}/>

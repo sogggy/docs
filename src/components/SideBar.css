@@ -5,10 +5,27 @@
     z-index: 100;
     padding: 48px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    border-left: 1px solid #ececec
+}
+
+.gap {
+    padding: 15px;
 }
 
 .navItem {
-    padding: 10px;
+    padding: 3px 10px;
+}
+
+.navItemText {
+    color: #1d1b1b50;
+    text-decoration: solid;
+    font-size: 0.8rem;
+}
+
+.navItemText:hover {
+    opacity: 0.6;
+    text-decoration: none;
+    color: black
 }
 
 #sidebar-wrapper{

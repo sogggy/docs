@@ -18,20 +18,22 @@ class SideBar extends Component {
     }
     
     render() {
-        const sideBarItems = this.props.items.map((item,index) => {
+        const sideBarItems = this.props.items.sideLinks.map((item,index) => {
             return (
             <Nav.Item key={index} className="navItem">
-                <Link to={item.link}>{item.name}</Link>
+                <Link to={item.link} className="navItemText">{item.name}</Link>
             </Nav.Item>
             )
         })
 
         return (
             <>
-                <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
-                    <div className="sidebar-sticky"></div>
-                    {sideBarItems}
-                </Nav>
+                <div className="gap"></div>
+                    <Nav className="col-md-12 d-none d-md-block sidebar">
+                        <div className="sidebar-sticky"></div>
+                        {sideBarItems}
+                    </Nav>
+                <div className="gap"></div>
             </>
             )
     }

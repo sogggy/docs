@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Navbar, NavDropdown, Form, FormControl, Button, Nav } from 'react-bootstrap'
+import { Navbar, NavDropdown, Nav} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import './TopBar.css'
 
 class TopBar extends Component {
     static defaultProps = {
@@ -38,21 +39,30 @@ class TopBar extends Component {
         ))
 
         const topbarLinks = this.props.topbarLinks.map((item, index) => (
-            <Nav.Link href={item.link} onClick={onClickLink} key={index}>{item.name}</Nav.Link>
+            <Nav.Link href={item.link} onClick={onClickLink} key={index} id="nav-link">{item.name}</Nav.Link>
         ))
         return (
-        <Navbar bg="info" expand="lg">
-        <Link to='/'><Navbar.Brand href="#">Vouch</Navbar.Brand></Link>
+        <Navbar expand="lg" className="topbar" variant="dark">
+        <Link to='/'>
+            <Navbar.Brand href="#">
+                Vouch
+            </Navbar.Brand></Link>
+            {/* might replace with image in the future */}
+            {/* <img 
+            src="" 
+            alt="Vouch"
+            style={{}}
+            /> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
                 {topbarDropDownHeaders}
                 {topbarLinks}
             </Nav>
-            <Form inline>
+            {/* <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
-            </Form>
+            </Form> */}
         </Navbar.Collapse>
         </Navbar>
         );
