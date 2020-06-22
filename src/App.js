@@ -9,63 +9,31 @@ import SideBar from './components/SideBar';
 import RenderMarkdown from './components/RenderMarkdown'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
+//save data into routes variable
+// console.log(fs)
+// let routes;
+// fs.readFile('../data/routes.json', 'utf8', (err, data) => {
+//   if (err) throw err;
+//   routes = JSON.parse(data)
+// })
+
+// console.log(routes)
+
 const routes = [
-  {
-    'path': '/',
-    'component': 'Home'
-  },
-  {
-    'path': '/user-manual/auth',
-    'component': 'AuthUserManual'
-  },
-  {
-    'path': '/admin/features/localisation.html',
-    'component': 'MultilangFeature'
-  },
-  {
-    'path': '/services/botbuilder',
-    'component': 'BotBuilderService'
-  }, 
-  {
-    'path': '/services/webhook',
-    'component': 'WebhookService'
-  },
-  {
-    'path': '/services/new-infra',
-    'component': 'NewInfraService'
-  },
-  {
-    'path': '/components',
-    'component': 'Components'
-  },
-  {
-    'path': '/sdk/android',
-    'component': 'AndroidSDK'
-  },
-  {
-    'path': '/sdk/ios',
-    'component': 'IOSSDK'
-  },
-  {
-    'path': '/sdk/web',
-    'component': 'WebSDK'
-  },
-  {
-    'path': '/api/widget',
-    'component': 'VouchAPI'
-  },
-  {
-    'path': '/engineering/run-botbuilder',
-    'component': 'RunBotbuilder'
-  },
-  {
-    'path': '/engineering/run-widget',
-    'component': 'RunWidget'
-  },
-  {
-    'path': '/engineering/run-catalogue-fe',
-    'component': 'RunCatalogueFE'
-  }
+  {'path': '/', 'component': 'Home'},
+  {'path': '/user-manual', 'component': 'Auth User Manual'},
+  {'path': '/admin/features', 'component': 'Multilang Feature'},
+  {'path': '/services/botbuilder', 'component': 'BotBuilder Service'}, 
+  {'path': '/services/webhook', 'component': 'Webhook Service'},
+  {'path': '/services/new-infra', 'component': 'New-Infra Service'},
+  {'path': '/components', 'component': 'Components'},
+  {'path': '/sdk/android', 'component': 'Android SDK'},
+  {'path': '/sdk/ios', 'component': 'iOS SDK'},
+  {'path': '/sdk/web', 'component': 'Web SDK'},
+  {'path': '/api/widget', 'component': 'Vouch API'},
+  {'path': '/engineering/run-botbuilder', 'component': 'Run Botbuilder'},
+  {'path': '/engineering/run-widget', 'component': 'Run Widget'},
+  {'path': '/engineering/run-catalogue-fe', 'component': 'Run Catalogue-FE'}
 ]
 
 const topbarHeaders = [
@@ -74,11 +42,11 @@ const topbarHeaders = [
     dropdownOptions: [
       {
         name:'BotBuilder Auth',
-        link:'/user-manual/auth'
+        link:'/user-manual'
       },
       {
         name:'Multilang',
-        link:'/admin/features/localisation.html'
+        link:'/admin/features'
       }
     ]
   },
@@ -138,10 +106,10 @@ const topbarHeaders = [
 const sideBarItems = [
   {
     url: '/',
-    sideLinks: [
+    subItems: [
       {
-        name:'Home',
-        link:'/'
+        name:'Text Card',
+        link:'#text-card'
       },
       {
         name:'Botbuilder',
@@ -150,21 +118,36 @@ const sideBarItems = [
     ]
   },
   {
-    url: '/services/botbuilder',
-    sideLinks: [
-      {
-        name:'test1',
-        link:'/'
-      },
-      {
-        name:'test2',
-        link:'/services/botbuilder'
-      }
+    url: '/services/botbuilder', subItems: [
+      { name:'How Bot Works', link:'#how-bot-works', subItems: [
+        { name:'Channels', link:'#channels'},
+        { name:'NLP', link:'#nlp'}
+      ]},
+      { name:'Intents', link:'#intents', subItems: [
+        { name:'Entities', link:'#entities'}
+      ]},
+      { name:'Blocks', link:'#blocks'},
+      { name:'Cards', link:'#cards', subItems:[
+        { name:'Outgoing Message Cards', link:'#outgoing-message-cards', subItems:[
+          { name:'Text Card', link:'#text-card', subItems:[
+            { name:'Truncate Text Option', link:'#truncate-text-option'}
+          ]},
+          { name:'Gallery Card', link:'#gallery-card', subItems:[
+            { name:'Dynamic Gallery', link:'#dynamic-gallery'}
+          ]},
+          { name:'List', link:'#list'},
+          { name:'Media Card', link:'#media-card'},
+          { name:'Buttons', link:'#buttons'},
+          { name:'Quick Replies', link:'#quick-replies'},
+          { name:'Yes/No Quick Replies', link:'#yes-no-quick-replies'},
+          { name:'Suggest Intent', link:'#suggest-intent'},
+        ]},
+      ]},
     ]
   },
   {
     url: '/admin/features/localisation.html',
-    sideLinks: [
+    subItems: [
       {
         name:'test3',
         link:'/'
@@ -227,7 +210,7 @@ class App extends Component {
                     key={index}
                     path={route.path}
                     exact
-                    component={() => (<RenderMarkdown file={route.path} onRender={this.handleClickLink}/>)}
+                    component={() => (<RenderMarkdown file={route.path} components={route.component} onRender={this.handleClickLink}/>)}
                   />
                 ))}
               </Switch>

@@ -1,0 +1,58 @@
+[
+    {
+      "path": "/",
+      "component": "Home"
+    },
+    {
+      "path": "/user-manual",
+      "component": "AuthUserManual"
+    },
+    {
+      "path": "/admin/features",
+      "component": "MultilangFeature"
+    },
+    {
+      "path": "/services/botbuilder",
+      "component": "BotBuilderService"
+    }, 
+    {
+      "path": "/services/webhook",
+      "component": "WebhookService"
+    },
+    {
+      "path": "/services/new-infra",
+      "component": "NewInfraService"
+    },
+    {
+      "path": "/components",
+      "component": "Components"
+    },
+    {
+      "path": "/sdk/android",
+      "component": "AndroidSDK"
+    },
+    {
+      "path": "/sdk/ios",
+      "component": "IOSSDK"
+    },
+    {
+      "path": "/sdk/web",
+      "component": "WebSDK"
+    },
+    {
+      "path": "/api/widget",
+      "component": "VouchAPI"
+    },
+    {
+      "path": "/engineering/run-botbuilder",
+      "component": "RunBotbuilder"
+    },
+    {
+      "path": "/engineering/run-widget",
+      "component": "RunWidget"
+    },
+    {
+      "path": "/engineering/run-catalogue-fe",
+      "component": "RunCatalogueFE"
+    }
+  ]

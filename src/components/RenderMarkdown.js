@@ -1,37 +1,42 @@
-import React from 'react'
-import ReactMarkdown from 'react-markdown'
+import React, { useEffect, useState } from 'react'
+import ReactMarkdown from 'react-markdown/with-html'
 import { useLocation } from 'react-router-dom'
+import { Container, Jumbotron } from 'react-bootstrap'
 
 function RenderMarkdown(props) {
-    const baseurl = 'https://s3-ap-southeast-1.amazonaws.com/doc.vouch.sg'
-    const { file } = props
-    console.log(file)
-    const fullurl = baseurl + file + '/new-infra.md'
-    console.log(fullurl)
+    const { file, onRender, components} = props
+    const [body, setBody] = useState('')
+    const baseurl = 'http://doc.vouch.sg'
+    let fullurl = baseurl + file + '/index.html.md'
+    if (file === '/') {
+        fullurl = 'http://doc.vouch.sg/index.html.md'
+    }
     const location = useLocation().pathname
-    //console.log(location)
-    const { onRender} = props
     onRender(location, file)
-    //console.log(useLocation().pathname)
-    // useEffect(() => {
-    //     async function getPage() {
-    //         const html = await fetch('doc.vouch.sg')
-    //         return html
-    //     }
-    //     res = getPage()
-    // })
-    fetch("https://www.google.com",{
-        mode: 'no-cors',
-        method: 'get'
-    }).then(function(response) {
-        response.text().then(function(text) {
-            console.log(response);
-        })
-    }).catch(function(err) {
-      console.log(err)
-    });
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await fetch(fullurl, {mode: 'cors', method: 'get'})
+            if (result.status === 404) {
+                setBody('# Page has yet to be uploaded, click on Services - New Infra for uploaded document')
+            } else {
+                const text = await result.text()
+                //console.log(text)
+                setBody(text)
+            }
+        }
+        fetchData()
+    })
     return (
-        <ReactMarkdown source ={file}/>
+        <>
+            <Jumbotron fluid>
+                <Container>
+                    <ReactMarkdown source = {'# ' + components}/>        
+                </Container>
+            </Jumbotron>
+            <Container>
+                <ReactMarkdown source = {body} escapeHtml={false}/>
+            </Container>
+        </>
     )
 }
 
