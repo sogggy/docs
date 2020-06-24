@@ -1,0 +1,14 @@
+.navSubItem {
+    padding: 3px 15px;
+}
+
+.navSubItemText {
+    color: #0000006b;
+    text-decoration: solid;
+    font-size: 1rem;
+}
+
+.navSubItemText:hover {
+    text-decoration: none;
+    color: #000000b6
+}

@@ -9,16 +9,6 @@ import SideBar from './components/SideBar';
 import RenderMarkdown from './components/RenderMarkdown'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-//save data into routes variable
-// console.log(fs)
-// let routes;
-// fs.readFile('../data/routes.json', 'utf8', (err, data) => {
-//   if (err) throw err;
-//   routes = JSON.parse(data)
-// })
-
-// console.log(routes)
-
 const routes = [
   {'path': '/', 'component': 'Home'},
   {'path': '/user-manual', 'component': 'Auth User Manual'},
@@ -106,19 +96,14 @@ const topbarHeaders = [
 const sideBarItems = [
   {
     url: '/',
-    subItems: [
-      {
-        name:'Text Card',
-        link:'#text-card'
-      },
-      {
-        name:'Botbuilder',
-        link:'/services/botbuilder'
-      }
+    sideLinks: [
+      { name:'Text Card', link:'#text-card' },
+      { name:'Botbuilder', link:'/services/botbuilder' }
     ]
   },
   {
-    url: '/services/botbuilder', subItems: [
+    url: '/services/botbuilder', 
+    sideLinks: [
       { name:'How Bot Works', link:'#how-bot-works', subItems: [
         { name:'Channels', link:'#channels'},
         { name:'NLP', link:'#nlp'}
@@ -147,15 +132,9 @@ const sideBarItems = [
   },
   {
     url: '/admin/features/localisation.html',
-    subItems: [
-      {
-        name:'test3',
-        link:'/'
-      },
-      {
-        name:'test4',
-        link:'/services/botbuilder'
-      }
+    sideLinks: [
+      { name:'test3', link:'/' },
+      { name:'test4', link:'/services/botbuilder' }
     ]
   }
 ]

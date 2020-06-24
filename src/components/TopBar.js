@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Navbar, NavDropdown, Nav} from 'react-bootstrap'
+import SearchBar from './SearchBar'
+import { Navbar, NavDropdown, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './TopBar.css'
 
@@ -59,10 +60,7 @@ class TopBar extends Component {
                 {topbarDropDownHeaders}
                 {topbarLinks}
             </Nav>
-            {/* <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-            </Form> */}
+            <SearchBar />
         </Navbar.Collapse>
         </Navbar>
         );

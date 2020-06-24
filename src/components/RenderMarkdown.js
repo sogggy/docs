@@ -20,7 +20,6 @@ function RenderMarkdown(props) {
                 setBody('# Page has yet to be uploaded, click on Services - New Infra for uploaded document')
             } else {
                 const text = await result.text()
-                //console.log(text)
                 setBody(text)
             }
         }
