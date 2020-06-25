@@ -5,16 +5,7 @@ import SideBarItems from './SideBarItems'
 
 class SideBar extends Component {
     static defaultProps = {
-        items: [
-            {
-                name:'Dummy Link 1',
-                link:'/services/botbuilder'
-            }, 
-            {
-                name:'Dummy Link 2',
-                link:'/services/botbuilder'
-            }
-        ]
+        items: []
     }
 
     render() {

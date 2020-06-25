@@ -10,6 +10,20 @@
     color: white
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 #nav-link {
     color: white
+}
+
+#active {
+    visibility: visible;
+    transition: all 200ms ease-in;
+}
+#hidden {
+    visibility: hidden;
+    transition: all 200ms ease-out;
+    transform: translate(0, -100%);
 }
