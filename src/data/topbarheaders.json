@@ -1,0 +1,27 @@
+[
+    { "title": "User Manual",
+      "dropdownOptions": [
+        { "name":"BotBuilder Auth", "link":"/user-manual" },
+        { "name":"Multilang", "link":"/admin/features" }
+      ]
+    },
+    { "title": "Services",
+      "dropdownOptions": [
+        { "name":"BotBuilder", "link":"/services/botbuilder" },
+        { "name":"Webhook", "link":"/services/webhook" },
+        { "name":"New Infra", "link":"/services/new-infra" }
+      ]
+    },
+    { "title": "SDK", "dropdownOptions": [
+        { "name":"Android", "link":"/sdk/android" },
+        { "name":"iOS", "link":"/sdk/ios" },
+        { "name":"Web", "link":"/sdk/web" }
+      ]
+    },
+    { "title": "Engineering", "dropdownOptions": [
+        { "name":"Run Botbuilder", "link":"/engineering/run-botbuilder" },
+        { "name":"Run Widget", "link":"/engineering/run-widget" },
+        { "name":"Run Catalogue Frontend", "link":"/engineering/run-catalogue-fe" }
+      ]
+    }
+  ]

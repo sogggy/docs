@@ -19,9 +19,11 @@ function RenderMarkdown({ file, onRender, components}) {
                 const result = await fetch(fullurl, {mode: 'cors', method: 'get', signal: abortController.signal})
                 if (result.status === 404) {
                     setBody('# Page has yet to be uploaded, click on Services - New Infra for uploaded document')
-                } else {
+                } else if (result.status === 200) {
                     const text = await result.text()
                     setBody(text)
+                } else {
+                    setBody('# Error ' + result.status)
                 }
             } catch (err) {
                 console.log(err)
