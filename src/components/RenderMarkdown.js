@@ -5,13 +5,14 @@ import { Container, Jumbotron } from 'react-bootstrap'
 
 function RenderMarkdown({ file, onRender, components}) {
     const [body, setBody] = useState('')
-    const baseurl = 'http://doc.vouch.sg'
-    let fullurl = baseurl + file + '/index.html.md'
-    if (file === '/') {
-        fullurl = 'http://doc.vouch.sg/index.html.md'
-    }
+    const baseurl = 'https://s3-ap-southeast-1.amazonaws.com/docs.vouch.sg/res'
+    let fullurl = `${baseurl}${file}/index.html.md`
     const location = useLocation().pathname
+    if (file === '/') {
+        fullurl = `${baseurl}/index.html.md`
+    }
     useEffect(() => {
+        document.title = 'Docs - ' + components
         onRender(location, file)
         const abortController = new AbortController()
         const fetchData = async () => {

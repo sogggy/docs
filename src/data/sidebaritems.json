@@ -28,11 +28,11 @@
       "sideLinks": [
         { "name":"Requirements", "link":"#requirements" },
         { "name":"How it Works", "link":"#how-it-works", "subItems": [
-          {"name":"Knowledge Base Prefix", "link":"kb-prefix"},
-          {"name":"Entities Prefix", "link":"entities-prefix"}
+          {"name":"Knowledge Base Prefix", "link":"#kb-prefix"},
+          {"name":"Entities Prefix", "link":"#entities-prefix"}
         ]},
-        { "name":"Enabling Feature", "link":"#enabling-feature" },
-        { "name":"Localised Blocks", "link":"#localised-blocks" },
+        { "name":"Enabling Feature", "link":"#enable-feature" },
+        { "name":"Localised Blocks", "link":"#localised-block" },
         { "name":"Localised Knowledge Bases", "link":"#localised-kb", "subItems": [
           {"name": "__local Prefix", "link": "#kb-local-prefix"}
         ]},
