@@ -9,7 +9,8 @@
       "dropdownOptions": [
         { "name":"BotBuilder", "link":"/services/botbuilder" },
         { "name":"Webhook", "link":"/services/webhook" },
-        { "name":"New Infra", "link":"/services/new-infra" }
+        { "name":"New Infra", "link":"/services/new-infra" },
+        { "name":"Hosting", "link":"/services/hosting" }
       ]
     },
     { "title": "SDK", "dropdownOptions": [

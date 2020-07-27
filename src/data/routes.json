@@ -4,6 +4,7 @@
   {"path": "/services/botbuilder", "component": "BotBuilder Service"}, 
   {"path": "/services/webhook", "component": "Webhook Service"},
   {"path": "/services/new-infra", "component": "New-Infra Service"},
+  {"path": "/services/hosting", "component": "Hosting"},
   {"path": "/components", "component": "Components"},
   {"path": "/sdk/android", "component": "Android SDK"},
   {"path": "/sdk/ios", "component": "iOS SDK"},

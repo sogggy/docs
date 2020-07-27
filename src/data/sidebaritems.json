@@ -65,6 +65,16 @@
       ]
     },
     {
+      "url": "/services/hosting",
+      "sideLinks": [
+        { "name":"Hosting Your Bot", "link":"#hosting-your-bot" },
+        { "name":"Adding HTML Boilerplate", "link":"#adding-html-boilerplate" },
+        { "name":"Adding Code Snippet", "link":"#adding-code-snippet" },
+        { "name":"Host Your Landing Page", "link":"#host-your-landing-page" },
+        { "name":"Set An API Endpoint", "link":"#set-an-api-endpoint" }
+      ]
+    },
+    {
       "url": "/services/botbuilder", 
       "sideLinks": [
         { "name":"How Bot Works", "link":"#how-bot-works", "subItems": [
