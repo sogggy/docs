@@ -1,3 +1,9 @@
+A serverless React App that acts documents how to use Vouch's BotBuilder. 
+
+Built with React, React-Router, React-Bootstrap
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
